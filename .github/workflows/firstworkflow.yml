@@ -17,9 +17,16 @@ jobs:
     - name: Make script executable
       run: chmod +x ./refresh_token.sh
 
-    - name: Run the Bash script
+    - name: Run Hossam Refresh Token
       env:
         client_id: ${{secrets.TTLOCK_HOSSAM_CLIENT_ID}}
         client_secret: ${{secrets.TTLOCK_HOSSAM_CLIENT_SECRET}}
         refresh_token: ${{secrets.TTLOCK_HOSSAM_REFRESH_TOKEN}}
+      run: ./refresh_token.sh
+      
+    - name: Run Office Refresh Token
+      env:
+        client_id: ${{secrets.TTLOCK_OFFICE_CLIENT_ID}}
+        client_secret: ${{secrets.TTLOCK_OFFICE_CLIENT_SECRET}}
+        refresh_token: ${{secrets.TTLOCK_OFFICE_REFRESH_TOKEN}}
       run: ./refresh_token.sh
