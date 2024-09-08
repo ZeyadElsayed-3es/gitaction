@@ -18,4 +18,8 @@ jobs:
       run: chmod +x ./refresh_token.sh
 
     - name: Run the Bash script
+      env:
+        client_id : ${{secrets.TTLOCK_HOSSAM_CLIENT_ID}}
+        client_secrets : ${{secrets.TTLOCK_HOSSAM_CLIENT_SECRET}}
+        refresh_token : ${{secrets.TTLOCK_HOSSAM_REFRESH_TOKEN}}
       run: ./refresh_token.sh
