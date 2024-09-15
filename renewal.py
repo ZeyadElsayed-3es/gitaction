@@ -3,7 +3,7 @@ import subprocess
 from git import Repo
 #---- Global Variables ------
 CF_Token = os.environ['CF_Token']
-#domain = os.getenv("domain")
+domain = os.environ['domain']
 def renew_cert() :
     domain = "office.3es-eg.uk"
     Repo.clone_from('https://github.com/3Es-for-smart-solutions/scripts', 'scripts')
