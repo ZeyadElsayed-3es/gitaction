@@ -13,7 +13,7 @@ def renew_cert() :
     if (result.returncode == 0 ):
         print("Certificate renewed successfully.")
         cert_path = str("./"+domain + "_ecc/" + domain + ".cer")
-        result2 = subprocess.run(["scp",cert_path,"zeyad@127.0.0.0:/home/zeyad/Desktop/" ])
+        result2 = subprocess.run(["scp -p 2222 ",cert_path,"zeyad@office.3es-eg.uk:/home/zeyad/Desktop/" ])
         
 #------------the output ----------------
         if (result2.returncode == 0 ):
