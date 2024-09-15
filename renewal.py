@@ -5,7 +5,7 @@ from git import Repo
 CF_Token = os.environ['CF_Token']
 domain = os.environ['domain']
 def renew_cert() :
-    domain = "office.3es-eg.uk"
+    domain = "cloud.3es-eg.uk"
     Repo.clone_from('https://github.com/Neilpang/acme.sh.git', 'acme-cert-bot')
     os.chdir("acme-cert-bot")
     command = "./acme.sh --issue --dns dns_cf --ocsp-must-staple --server letsencrypt  --keylength ec-384 -d %s --dnssleep 120 --days 90 --home '%s'" %(domain,domain)
