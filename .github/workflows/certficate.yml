@@ -21,6 +21,9 @@ jobs:
         uses: tanmancan/action-setup-ssh-agent-key@1.0.0
         with: 
             ssh-private-key: ${{ secrets.MY_LAB_KEY }}
+      - name: Make script executable
+        run: chmod +x ./renewal.py
+
       - name: running the script
         env:
           CF_Token: ${{secrets.CF_Token}}
