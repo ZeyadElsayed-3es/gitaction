@@ -28,5 +28,5 @@ jobs:
         env:
           CF_Token: ${{secrets.CF_Token}}
           domain:  "office.3es-eg.uk"
-        run: ./renewal.py
+        run: python ./renewal.py
         
