@@ -1,4 +1,4 @@
-name: Weekly Workflow
+name: cert renew
 
 on:
   schedule:
