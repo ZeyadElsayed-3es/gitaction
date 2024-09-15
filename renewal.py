@@ -1,6 +1,6 @@
-#import os 
-#import subprocess
-#from git import Repo
+import os 
+import subprocess
+from git import Repo
 #---- Global Variables ------
 CF_Token = os.environ['CF_Token']
 domain = os.getenv("domain")
