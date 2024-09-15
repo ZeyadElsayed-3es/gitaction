@@ -11,6 +11,7 @@ def renew_cert() :
     command = "./acme.sh --issue --dns dns_cf --ocsp-must-staple --server letsencrypt  --keylength ec-384 -d %s --dnssleep 120 --days 90 --home '%s'" %(domain,domain)
     result = subprocess.run(command,shell=True)
     if (result.returncode == 0 ):
+        print("Certificate renewed successfully.")
         cert_path = str("./"+domain + "_ecc/" + domain + ".cer")
         result2 = subprocess.run(["scp",cert_path,"zeyad@127.0.0.0:/home/zeyad/Desktop/" ])
         
