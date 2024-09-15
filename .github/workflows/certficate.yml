@@ -17,12 +17,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip setuptools wheel
           sudo apt install python3-git
-      - name: install repo
-        run: |
-            gh issue --repo ${{ github.repository }} \
-              create --title "Issue title" --body "Issue body"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: ssh install
         uses: tanmancan/action-setup-ssh-agent-key@1.0.0
         with: 
