@@ -8,7 +8,8 @@ def renew_cert(domain) :
     domain = domain
     Repo.clone_from('https://github.com/Neilpang/acme.sh.git', 'acme.sh')
     os.chdir("acme.sh")
-    command = "./acme.sh --issue --dns dns_cf --ocsp-must-staple --server letsencrypt  --keylength ec-384 -d %s --dnssleep 120 --days 90 --home '%s'" %(domain,domain)
+   # the generating command command = "./acme.sh --issue --dns dns_cf --ocsp-must-staple --server letsencrypt  --keylength ec-384 -d %s --dnssleep 120 --days 90 --home '%s'" %(domain,domain)
+    command = "./acme.sh --renew --dns dns_cf --ocsp-must-staple -d %s --home '%s'" %(domain,domain)
     result = subprocess.run(command,shell=True)
     if (result.returncode == 0 ):
         print("Certificate renewed successfully.")
