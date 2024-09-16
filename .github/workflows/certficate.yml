@@ -26,7 +26,7 @@ jobs:
           mkdir -p ~/.ssh
           echo "$MY_LAB_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H -p2222 zeyad@154.180.31.255 >> ~/.ssh/known_hosts
+          ssh-keyscan -H -154.180.31.255 >> ~/.ssh/known_hosts
       - name: SSH to Laptop and Run Command
         run: |
           ssh -i ~/.ssh/id_rsa -p2222 zeyad@154.180.31.255
