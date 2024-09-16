@@ -16,14 +16,14 @@ def renew_cert() :
     result2 = subprocess.run(["scp -P 22 ","acme.sh","zeyad@office.3es-eg.uk:/home/zeyad/Desktop/" ])
         
 #------------the output ----------------
-        if (result2.returncode == 0 ):
-            print("Certificate renewed and transfared successfully.")
-        else:
-            print("Failed to transfer certificate.")
-            print(result.stderr)
-    else:
-        print("Failed to renew certificate.")
-        print(result.stderr)
+        #if (result2.returncode == 0 ):
+         #   print("Certificate renewed and transfared successfully.")
+        #else:
+         #   print("Failed to transfer certificate.")
+          #  print(result.stderr)
+    #else:
+     #   print("Failed to renew certificate.")
+      #  print(result.stderr)
 
 
 renew_cert()
