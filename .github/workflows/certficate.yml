@@ -20,18 +20,14 @@ jobs:
      # - name: ssh install
       #  uses: tanmancan/action-setup-ssh-agent-key@1.0.0
        # with: 
-        #    ssh-private-key: ${{ secrets.MY_LAB_KEY }}
-      - name: Set up SSH
+      - name: Set up SSH key
         run: |
+          env
           mkdir -p ~/.ssh
-          echo "$MY_LAB_KEY" > ~/.ssh/id_rsa
+          echo "${{ secrets.MY_LAB_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H -154.180.31.255 >> ~/.ssh/known_hosts
-      - name: SSH to Laptop and Run Command
-        run: |
-          ssh -i ~/.ssh/id_rsa -p2222 zeyad@154.180.31.255
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.MY_LAB_KEY }}
+          ssh-keyscan -p 2222 154.180.31.255 >> ~/.ssh/known_hosts
+          sudo apt-get install sshpass
       - name: Make script executable
         run: chmod +x ./renewal.py
 
