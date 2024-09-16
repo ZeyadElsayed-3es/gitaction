@@ -33,6 +33,6 @@ jobs:
       - name: running the script
         env:
           CF_Token: ${{secrets.CF_Token}}
-          domain:  "office.3es-eg.uk"
+          domain:  "cloud.3es-eg.uk"
         run: python ./renewal.py
         
