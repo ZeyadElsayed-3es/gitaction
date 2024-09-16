@@ -7,7 +7,7 @@ domain = os.environ['domain']
 def renew_cert() :
     domain = "cloud.3es-eg.uk"
     Repo.clone_from('https://github.com/Neilpang/acme.sh.git', 'acme-cert-bot')
-    os.chdir("acme-cert-bot")
+    os.chdir("acme.sh")
     #command = "./acme.sh --issue --dns dns_cf --ocsp-must-staple --server letsencrypt  --keylength ec-384 -d %s --dnssleep 120 --days 90 --home '%s'" %(domain,domain)
     #result = subprocess.run(command,shell=True)
     #if (result.returncode == 0 ):
