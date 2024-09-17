@@ -8,3 +8,6 @@ clients:
   - domain: "client3.com"
     ssh_key: "${{ secrets.MY_LAB_KEY }}"
     path: "/path/to/client3"
+  - domain: "client3.com"
+    ssh_key: "${{ secrets.MY_LAB_KEY }}"
+    path: "/path/to/client3"
