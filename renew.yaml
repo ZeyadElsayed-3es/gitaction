@@ -1,0 +1,29 @@
+name: Cert Renew Action
+inputs:
+  domain: 
+    required: true
+  ssh_key: 
+    required: true
+  path:
+    required: true
+runs: 
+  using: "composite"
+  steps: 
+    - name: setup ssh session
+      run: | 
+        mkdir -p ~/.ssh
+        echo "${{ inputs.ssh_key }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan  ${{ inputs.domain }} >> ~/.ssh/known_hosts
+        sudo apt-get install sshpass
+        
+    -  name: make the script excutable 
+       run: chmod -x ./run.py
+       
+    -  name: running the script
+       run: | 
+         CF_Token=${{secrets.CF_Token}}
+         domain=${{inputs.domain}}
+         path=${{inputs.path}}
+         python ./run.py
+        
