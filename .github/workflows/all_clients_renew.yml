@@ -25,9 +25,9 @@ jobs:
          run: |
               clients=$(yq eval '.clients[] ./cert_renew/clients.yaml')
               for client in clients : do
-                domain= $(echo $client | yq eval 'domain')
-                ssh_key= $(echo $client | yq eval 'ssh_key')
-                path= $(echo $client | yq eval 'path')
+                $domain= $(echo $client | yq eval 'domain')
+                $ssh_key= $(echo $client | yq eval 'ssh_key')
+                $path= $(echo $client | yq eval 'path')
                 uses: ./.github/actions/cert-renew/
                 with:
                   domain= "$domain"
