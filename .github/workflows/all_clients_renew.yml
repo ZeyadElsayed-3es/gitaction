@@ -28,5 +28,10 @@ jobs:
                 $domain= $(echo $client | yq eval 'domain')
                 $ssh_key= $(echo $client | yq eval 'ssh_key')
                 $path= $(echo $client | yq eval 'path')
+                uses: ./.github/actions/cert-renew/
+                with:|
+                  domain= "$domain"
+                  ssh_key= "$ssh_key"
+                  path= "$path"
                 done
 
