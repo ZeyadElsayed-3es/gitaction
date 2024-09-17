@@ -17,7 +17,7 @@ jobs:
          run:  sudo apt-get install -y yq
          
       -  name: read clienst from yaml file using yq
-      -  run: |
+         run: |
               clients=$(yq eval '.clients[]' ./cert_renew/clienst.yaml)
               for client in clients : do
                 domain = $(echo $client | yq eval 'domain')
