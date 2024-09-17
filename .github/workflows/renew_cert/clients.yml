@@ -1,0 +1,26 @@
+name: all clients cert renew
+
+on:
+  schedule: 
+    -  cron: '0 0 * * FRI'
+  workflow_dispatch:
+jobs:
+  renew_certificate:
+    runs-on: ubuntu-latest
+    steps:
+      -  name: checkout repository
+         uses: actions/checkout@v3
+      -  name: install yq to read clients 
+         run:  sudo apt-get install -y yq
+      -  name: read clienst from yaml file using yq
+      -  run: |
+              clients=$(yq eval '.clients[]' ./cert_renew/clienst.yaml)
+              for client in clients : do
+                domain = $(echo $client | yq eval 'domain')
+                ssh_key= $(echo $client | yq eval 'ssh_key')
+                path   = $(echo $client | yq eval 'path')
+                uses: ./.github/actions/renew
+                with:
+                  domain = "$domain"
+                  ssh_key= "$ssh_key"
+                  path   = "$path"
