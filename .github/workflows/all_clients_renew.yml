@@ -33,3 +33,4 @@ jobs:
                   domain= "$domain"
                   ssh_key= "$ssh_key"
                   path= "$path"
+                  done
