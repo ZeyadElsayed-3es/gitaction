@@ -1,9 +1,11 @@
 name: all clients cert renew
 
 on:
-  schedule: 
-    -  cron: '0 0 * * FRI'
+  schedule:
+    # Runs every Friday at 00:00
+    - cron: '0 0 * * FRI'
   workflow_dispatch:
+
 jobs:
   renew_certificate:
     runs-on: ubuntu-latest
