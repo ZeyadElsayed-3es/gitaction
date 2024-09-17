@@ -18,12 +18,12 @@ runs:
         sudo apt-get install sshpass
         
     -  name: make the script excutable 
-       run: chmod -x ./run.py
+       run: chmod -x ./cert_renew/run.py
        
     -  name: running the script
        run: | 
          CF_Token=${{secrets.CF_Token}}
          domain=${{inputs.domain}}
          path=${{inputs.path}}
-         python ./run.py
+         python ./cert_renew/run.py
         
