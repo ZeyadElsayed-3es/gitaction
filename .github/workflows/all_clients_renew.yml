@@ -28,10 +28,6 @@ jobs:
                 domain=$(echo $client | yq eval '.domain' -)
                 path=$(echo $client | yq eval '.path' -)
                 ssh_key=$(echo $client | yq eval '.ssh_key' -)
-                uses: ./.github/actions/cert-renew/
-                with: |
-                  domain= "$domain"
-                  ssh_key= "$ssh_key"
-                  path= "$path"
+                gh workflow run reusable-cert-renew.yml --input domain="$domain" --input ssh_key="$ssh_key" --input path="$path"
                 done
 
