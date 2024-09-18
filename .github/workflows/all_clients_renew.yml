@@ -26,12 +26,12 @@ jobs:
          run: |
               clients=$(yq eval '.clients[]' ./cert_renew/clients.yaml)
               for client in $clients; do
-                #domain=$(echo $client | yq eval '.domain' -)
-                #path=$(echo $client | yq eval '.path' -)
-                #ssh_key=$(echo $client | yq eval '.ssh_key' -)
+                domain=$(echo $client | yq eval '.domain' -)
+                path=$(echo $client | yq eval '.path' -)
+                ssh_key=$(echo $client | yq eval '.ssh_key' -)
                 env
-                  domain=$(echo $client | yq eval '.domain' -)
-                  path=$(echo $client | yq eval '.path' -)
+                  export domain = $domain
+                  export path = $path
                   ssh_key=$(echo $client | yq eval '.ssh_key' -)
                   mkdir -p ~/.ssh
                   echo "$ssh_key" > ~/.ssh/id_rsa
