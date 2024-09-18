@@ -21,7 +21,7 @@ jobs:
               sudo chmod +x /usr/local/bin/yq
       
       - name: Use local my-action
-        uses: ./.github/workflows
+        run: ./.github/workflows
          
       -  name: read clienst from yaml file using yq
          run: |
