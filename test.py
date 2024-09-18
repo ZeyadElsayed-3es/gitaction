@@ -1,11 +1,12 @@
 import os
 import subprocess
 # Get environment variables
-env_var1 = os.environ['domain']
-env_var2 = os.environ['path']
+env_var1 = os.getenv['domain']
+env_var2 = os.getenv['path']
 print("------------------------------------------")
 print(env_var1)
 print(env_var2)
+print("------------------------------------------")
 # Use ENV_VAR1 as the file name
 # file_name = f"{env_var1}.txt"
 
