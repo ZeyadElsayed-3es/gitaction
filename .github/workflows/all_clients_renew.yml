@@ -36,5 +36,5 @@ jobs:
                 sudo apt-get install sshpass
                 chmod -x ./test.py
                 python ./test.py
-                done
+              done
 
