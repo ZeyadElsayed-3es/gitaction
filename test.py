@@ -1,5 +1,5 @@
 import os
-
+import subprocess
 # Get environment variables
 env_var1 = os.environ['domain']
 env_var2 = os.environ['path']
