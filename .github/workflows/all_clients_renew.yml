@@ -20,8 +20,8 @@ jobs:
               sudo wget https://github.com/mikefarah/yq/releases/download/v4.25.1/yq_linux_amd64 -O /usr/local/bin/yq
               sudo chmod +x /usr/local/bin/yq
       
-      - name: Verify yq installation
-        run: yq --version
+      - name: Use local my-action
+        uses: ./.github/workflows/reusable-cert-renew
          
       -  name: read clienst from yaml file using yq
          run: |
