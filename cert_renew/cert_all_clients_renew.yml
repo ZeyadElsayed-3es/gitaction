@@ -1,0 +1,35 @@
+name: all clients cert renew
+
+on:
+  schedule:
+    # Runs every Friday at 00:00
+    - cron: '0 0 * * FRI'
+  workflow_dispatch:
+
+jobs:
+  renew_certificate:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      -  name: checkout repository
+         uses: actions/checkout@v3
+         
+      -  name: install yq to read clients 
+         run: |
+              sudo wget https://github.com/mikefarah/yq/releases/download/v4.25.1/yq_linux_amd64 -O /usr/local/bin/yq
+              sudo chmod +x /usr/local/bin/yq
+              sudo apt install --only-upgrade gh         
+      -  name: read clienst from yaml file using yq
+         env: 
+           CF_Token: ${{secrets.CF_Token}}
+         run: |
+              exec > "$output_file"
+              for client in $(yq '.clients[]' ./cert_renew/clients.yaml); do
+                echo "Domain: $(yq eval '.domain' <<< "$client")"
+                echo "Path: $(yq eval '.path' <<< "$client")"
+                echo "SSH Key: $(yq eval '.ssh_key' <<< "$client")"
+                echo
+              done
+              
+
