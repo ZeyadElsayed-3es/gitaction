@@ -26,9 +26,9 @@ jobs:
          run: |
               clients=$(yq eval '.clients[]' ./cert_renew/clients.yaml)
               for client in $clients; do
-                domain=$(echo $client | yq eval '.domain' -)
-                path=$(echo $client | yq eval '.path' -)
-                ssh_key=$(echo $client | yq eval '.ssh_key' -)
+                #domain=$(echo $client | yq eval '.domain' -)
+                #path=$(echo $client | yq eval '.path' -)
+                #ssh_key=$(echo $client | yq eval '.ssh_key' -)
                 env
                   domain=$(echo $client | yq eval '.domain' -)
                   path=$(echo $client | yq eval '.path' -)
@@ -38,6 +38,7 @@ jobs:
                   chmod 600 ~/.ssh/id_rsa
                   ssh-keyscan -p 2222 154.180.31.255 >> ~/.ssh/known_hosts
                   sudo apt-get install sshpass
+                  chmod -x ./test.py
                   python ./test
                 done
 
