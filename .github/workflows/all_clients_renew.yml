@@ -29,8 +29,9 @@ jobs:
                 #export domain=$(echo $client | yq eval '.domain' -)
                 #export path=$(echo $client | yq eval '.path' -)
                 #ssh_key=$(echo $client | yq eval '.ssh_key' -)
-                export domain=$(echo $client.domain)
-                export path=$(client.path)
+                export domain=$(yq eval '.domain' <<< "$client")
+                export path=$(yq eval '.path' <<< "$client")
+                export ssh_key=$(yq eval '.ssh_key' <<< "$client")
                 #mkdir -p ~/.ssh
                 #echo "${ssh_key}" > ~/.ssh/id_rsa
                 #chmod 600 ~/.ssh/id_rsa
