@@ -27,6 +27,6 @@ jobs:
                 domain=$(echo $client | yq eval '.domain' -)
                 path=$(echo $client | yq eval '.path' -)
                 ssh_key=$(echo $client | yq eval '.ssh_key' -)
-                gh run ./.github/workflows -F domain="$domain" -F ssh_key="$ssh_key" -F path="$path"
+                gh run ./.github/workflows --field domain="$domain" --field ssh_key="$ssh_key" --field path="$path"
                 done
 
