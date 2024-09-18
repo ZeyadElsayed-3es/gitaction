@@ -1,7 +1,7 @@
 name: Reusable Cert Renew
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       domain:
         required: true
