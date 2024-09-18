@@ -4,8 +4,8 @@ import subprocess
 env_var1 = os.getenv('domain')
 env_var2 = os.getenv('path')
 print("------------------------------------------")
-print(env_var1)
-print(env_var2)
+print("first variable is " +env_var1)
+print("second variable is"+env_var2)
 print("------------------------------------------")
 # Use ENV_VAR1 as the file name
 # file_name = f"{env_var1}.txt"
