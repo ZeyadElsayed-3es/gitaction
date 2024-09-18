@@ -9,6 +9,8 @@ on:
 jobs:
   renew_certificate:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       -  name: checkout repository
          uses: actions/checkout@v3
