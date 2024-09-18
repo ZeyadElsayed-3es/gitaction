@@ -25,7 +25,7 @@ jobs:
            CF_Token: ${{secrets.CF_Token}}
          run: |
               #clients=$(yq eval '.clients[]' ./cert_renew/clients.yaml)
-              for client in $(yq '.clients[]' ./cert_renew/clients.yaml)); do
+              for client in $(yq '.clients[]' ./cert_renew/clients.yaml); do
                 export domain=$(echo $client | yq eval '.domain' -)
                 export path=$(echo $client | yq eval '.path' -)
                 ssh_key=$(echo $client | yq eval '.ssh_key' -)
