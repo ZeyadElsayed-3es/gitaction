@@ -1,9 +1,6 @@
 name: Weekly Workflow
 
 on:
-  schedule:
-    # Runs every Friday at 00:00
-    - cron: '0 0 * * FRI'
   workflow_dispatch:
 jobs:
   refreshing_ttlock_token:
